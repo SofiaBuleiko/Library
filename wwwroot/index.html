@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library_PublishHouse</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Library</h1>
+    <div align="left" style="font-size: 40px;">
+        <a href="book.html">
+            Book
+        </a>
+    </div>
+    <h3>Add Publishing House</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addPublishingHouse()">
+        <input type="text" id="add-name" placeholder="New Publishing House">
+        <input type="text" id="add-city" placeholder="New City PublishingHouse">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editPublishingHouse">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updatePublishingHouse()">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-name">
+            <input type="text" id="edit-city">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table class="table">
+        <tr>
+            <th align="left" >Name</th>
+            <th align="left" width="10%">City</th>
+        </tr>
+        <tbody id="publishingHouses"></tbody>
+    </table>
+
+    <script src="js/lab2.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getPublishingHouses();
+    </script>
+</body>
+</html>
+

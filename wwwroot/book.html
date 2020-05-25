@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library_Book</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Library</h1>
+    <div align="left" style="font-size: 40px;">
+        <a href="index.html">
+            Publishing House
+        </a>
+    </div>
+    <h3>Add Book</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addBook()">
+        <input type="text" id="add-name" placeholder="New Book">
+        <input type="text" id="add-year" placeholder="New Year">
+        <input type="text" id="add-pages" placeholder="New Pages">
+        <!--<input type="text" id="add-publishingHouse" placeholder="New Publishing House">-->
+        <select id="publishingHouses"></select>
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editBook">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateBook()">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-name">
+            <input type="text" id="edit-year">
+            <input type="text" id="edit-pages">
+            <!--<input type="text" id="edit-publishingHouse">-->
+            <!--<select id="edit-publishingHouses"></select>-->
+            <select id="selectpublishingHouse" onchange=" getBooksByPublishingHouse()"
+                    ></select>
+            <!--<a onclick="closeInput()" aria-label="Close">&#10006;</a>-->
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+    <!--<div>
+        <select id="selectpublishingHouse" onchange=" getBooksByPublishingHouse()"
+                class="btn btn-light dropdown-toggle" style="width:60%"></select>
+        <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+    </div>-->
+
+
+    <p id="counter"></p>
+
+    <table class="table">
+        <tr class="bukvu">
+            <th align="left" >Name</th>
+            <th align="left" width="6%">Year    </th>
+            <th align="left" width="6%">Pages  </th>
+            <th align="left" >PublishingHouse</th>
+        </tr>
+        <tbody id="books"></tbody>
+    </table>
+
+    <script src="js/lab21.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getPublishingHouses();
+        getBooks();
+    </script>
+</body>
+</html>
+
